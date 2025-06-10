@@ -1,14 +1,1 @@
-{
-  "7603874088": {
-    "budget": 0.0,
-    "expenses": []
-  },
-  "1482925466": {
-    "budget": 1000000.0,
-    "expenses": []
-  },
-  "90531686": {
-    "budget": 100000.0,
-    "expenses": []
-  }
-}
+{"7603874088":{"budget":1000000.0,"expenses":[]},"6604134314":{"budget":1000000.0,"expenses":[]},"5120395615":{"budget":980000.0,"expenses":[{"category":"Oziq-ovqat","amount":50000.0,"description":"Kartoshka"},{"category":"Transport","amount":120000.0,"description":"Signal"},{"category":"Hos tavar","amount":20000.0,"description":"Mix"}]}}

@@ -1,4 +1,4 @@
-package com.example.service.updates;
+package com.example.service.update;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -14,15 +14,20 @@ public class CallBackData {
         sendMessage.setChatId(chatId);
         Integer i = state.get(chatId);
         if (update.getCallbackQuery().getData().equals("basket")) {
-            HashMap<Integer, Integer> userOrder = orders.get(chatId);
-            basket.putIfAbsent(chatId, new ArrayList<>());
-            List<String> strings = basket.get(chatId);
-            strings.add("you have ordered " + userOrder.get(i) + " " + (i == 4 ? "✅ Non Burger" : i == 5 ?
-                    "✅ Tandir Burger" : i == 6 ? "✅ Samarqand Burger" :
-                    i == 7 ? "\uD83C\uDF2D Classic Hot Dog" : i == 8 ? "\uD83C\uDF2E Chili Cheese Hot Dog" :
-                            i == 9 ? "\uD83E\uDD6C Gourmet Veggie Hot Dog" : i == 10 ? "\uD83C\uDF6BMocha Coffee" : i == 11 ? "\uD83E\uDD5B Cappuccino" : i == 12 ? "\uD83E\uDDCA Iced Coffee"
-                                    : i == 13 ? "Green Tea" : i == 14 ? "Black Tea" : i == 15 ? "Herbal Tea" : ""));
-            return;
+            if(basket==null){
+                sendMessage.setText("Sizning savatingiz hozircha bo'sh");
+            }
+            else {
+                HashMap<Integer, Integer> userOrder = orders.get(chatId);
+                basket.putIfAbsent(chatId, new ArrayList<>());
+                List<String> strings = basket.get(chatId);
+                strings.add("you have ordered " + userOrder.get(i) + " " + (i == 4 ? "✅ Non Burger" : i == 5 ?
+                        "✅ Tandir Burger" : i == 6 ? "✅ Samarqand Burger" :
+                        i == 7 ? "\uD83C\uDF2D Classic Hot Dog" : i == 8 ? "\uD83C\uDF2E Chili Cheese Hot Dog" :
+                                i == 9 ? "\uD83E\uDD6C Gourmet Veggie Hot Dog" : i == 10 ? "\uD83C\uDF6BMocha Coffee" : i == 11 ? "\uD83E\uDD5B Cappuccino" : i == 12 ? "\uD83E\uDDCA Iced Coffee"
+                                        : i == 13 ? "Green Tea" : i == 14 ? "Black Tea" : i == 15 ? "Herbal Tea" : ""));
+                return;
+            }
         }
         switch (i) {
             case 4 -> {

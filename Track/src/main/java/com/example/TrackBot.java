@@ -58,7 +58,6 @@ public class TrackBot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
-
             UserData userData = userDataMap.computeIfAbsent(chatId, k -> new UserData());
             UserState userState = userStateMap.computeIfAbsent(chatId, k -> new UserState());
             String language = userLanguageMap.computeIfAbsent(chatId, k -> "uz");
