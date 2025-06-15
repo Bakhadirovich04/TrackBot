@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Bog‘lanish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #c2e9fb, #81a4fd);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contact-container {
+            background-color: #ffffffee;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            max-width: 700px;
+            width: 90%;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .contact-text {
+            font-size: 18px;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-item img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-container">
+    <h2>Biz bilan bog'laning</h2>
+
+    <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email">
+        <div class="contact-text"><strong>Email:</strong> info@rentcar.uz</div>
+    </div>
+
+    <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
+        <div class="contact-text"><strong>Telefon:</strong> +998 94 670 54 44</div>
+    </div>
+
+    <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location">
+        <div class="contact-text"><strong>Manzil:</strong> Toshkent shahri, Amir Temur ko'chasi 101</div>
+    </div>
+
+    <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Clock">
+        <div class="contact-text"><strong>Ish vaqti:</strong> Dushanba - Shanba: 09:00 - 18:00</div>
+    </div>
+</div>
+
+</body>
+</html>

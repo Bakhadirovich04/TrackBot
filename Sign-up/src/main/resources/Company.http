@@ -1,0 +1,29 @@
+### Companylarni yaratish
+POST http://localhost:8081/company/create
+Content-Type: application/json
+
+{
+  "companyName": "KIA Motors",
+  "address":"China, Beijing",
+  "phoneNumber": "+55565224878",
+  "balance":20000000.00
+}
+
+
+### Companylarni olish
+GET http://localhost:8081/company/read?page=1&size=3
+
+
+### Companyni yangilash
+PUT http://localhost:8081/company/update?id=5
+Content-Type: application/json
+
+{
+  "companyName": "Artel",
+  "address":"Tashkent, Uzbekistan",
+  "phoneNumber": "+998987654321",
+  "balance":70000000.00
+}
+
+### Companyni o'chirish
+DELETE http://localhost:8081/company/delete?companyId=3

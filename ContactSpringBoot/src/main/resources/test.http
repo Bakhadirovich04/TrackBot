@@ -1,0 +1,21 @@
+POST http://localhost:8080/contact
+Content-Type: application/json
+
+{
+  "number": "991112233",
+  "name": "Otbek"
+}
+###
+
+http://localhost:8080/contact
+###
+
+PUT http://localhost:8080/contact/update?id=1
+Content-Type: application/json
+
+{
+  "number": "946555555",
+  "name": "Ikrom"
+}
+###
+DELETE http://localhost:8080/contact/delete?id=2

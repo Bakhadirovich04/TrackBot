@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kirish</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://hips.hearstapps.com/hmg-prod/images/21802-2025-k5-65c51c31b9323.jpg?crop=0.657xw%3A0.555xh%3B0.226xw%2C0.178xh&resize=2048%3A%2A');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .signin-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .signup-link a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">RentCar24</div>
+        <nav>
+            <a href="/">Bosh sahifa</a>
+            <a href="/cars">Avtomobillar</a>
+            <a href="/aloqa">Aloqa</a>
+        </nav>
+    </div>
+</header>
+
+<div class="signin-container">
+    <h2>Kirish</h2>
+    <form th:action="@{/auth/signin}" method="post">
+        <input type="text" name="email" placeholder="Email kiriting" required>
+        <input type="password" name="password" placeholder="Parol kiriting" required>
+        <button type="submit">Kirish</button>
+    </form>
+    <div class="signup-link">
+        Hisobingiz yo'qmi?
+        <a href="/auth/signup">Ro'yxatdan o'tish</a>
+    </div>
+</div>
+
+</body>
+</html>

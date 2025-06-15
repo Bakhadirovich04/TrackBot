@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buyurtmalar Ro'yxati</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #eef2f5; margin: 0; padding: 0; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        main { max-width: 1000px; margin: 30px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        h1 { margin: 0 0 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 8px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #3498db; color: white; }
+        tr:hover { background: #f5f5f5; }
+        img { max-width: 100px; border-radius: 4px; }
+        .back-link { margin-top: 20px; }
+        .back-link a { color: #3498db; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Buyurtmalar Ro'yxati</h1>
+</header>
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Rasm</th>
+            <th>Model</th>
+            <th>Boshlanish</th>
+            <th>Tugash</th>
+            <th>Narx</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dto : ${bookingList}">
+            <td th:text="${dto.id}"></td>
+            <td>
+                <img th:if="${dto.image != null}" th:src="@{${dto.image}}" alt="Car Image" />
+            </td>
+            <td th:text="${dto.title}"></td>
+            <td th:text="${#dates.format(dto.startDate, 'yyyy-MM-dd HH:mm')}"></td>
+            <td th:text="${#dates.format(dto.endDate, 'yyyy-MM-dd HH:mm')}"></td>
+            <td th:text="${dto.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="back-link">
+        <a th:href="@{/admin}">Ortga</a>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    URL: jdbc:postgresql://localhost:5432/sign
+    username: postgres
+    password: root123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: husanchoriyev20040406@gmail.com
+    password: dbvf bidy znpp fqxi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+server:
+  port : 8081
+api:
+   version: v15
+jwt:
+  secret: my-secret-key-for-jwt-please-do-not
+  expire-time: 3600000 # 1 hour in milliseconds

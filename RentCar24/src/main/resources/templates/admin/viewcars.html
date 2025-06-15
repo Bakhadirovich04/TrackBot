@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Avtomobillar Ro'yxati</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #3a6073, #16222a);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .logout-action {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .logout-action a {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .logout-action a:first-child {
+            background-color: #3498db;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        th.description, td.description {
+            max-width: 200px;
+        }
+
+        td.description span {
+            display: block;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        img {
+            max-width: 80px;
+            height: auto;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin-bottom: 5px;
+            padding: 6px 10px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 12px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .actions a:hover {
+            background-color: #2980b9;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .actions a.delete {
+            background-color: #e74c3c;
+        }
+
+        .actions a.delete:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logout-action">
+        <a href="/admin">Back</a>
+    </div>
+    <div class="header-content">
+        <h1>Avtomobillar Ro'yxati</h1>
+        <p>Joriy bazadagi mashinalar</p>
+    </div>
+</header>
+
+<main>
+    <h2>Mashinalar Jadvali</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Brend</th>
+            <th>Rang</th>
+            <th>Yil</th>
+            <th class="description">Tavsif</th>
+            <th>Narx</th>
+            <th>Reyting</th>
+            <th>Number</th>
+            <th>Status</th>
+            <th>Rasm</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.year}"></td>
+            <td class="description"><span th:text="${car.description}"></span></td>
+            <td th:text="${car.price} + ' so\'m'"></td>
+            <td th:text="${car.rate}"></td>
+            <td th:text="${car.number}"></td>
+            <td th:text="${car.status}"></td>
+            <td><img th:src="${car.imageUrl}" alt="Car image"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+### Authorization: Husan:  Y2hvcml5ZXZodXNhbjc0QGdtYWlsLmNvbQ==
+### Authorization: Ali: aHVzYW5jaG9yaXlldjIwMDQwNDA2QGdtYWlsLmNvbQ==
+
+### Transaction history request
+GET http://localhost:8081/transaction/history?number=215163030215851&page=1&size=3
+Authorization: aHVzYW5jaG9yaXlldjIwMDQwNDA2QGdtYWlsLmNvbQ==
+
+
+###Transfer
+POST http://localhost:8081/transaction/pay
+Content-Type: application/json
+Authorization: aHVzYW5jaG9yaXlldjIwMDQwNDA2QGdtYWlsLmNvbQ==
+
+{
+  "invoiceNumber": "676202",
+  "fromCardNumber": "5614680009176336",
+  "amount": 10000.00
+}

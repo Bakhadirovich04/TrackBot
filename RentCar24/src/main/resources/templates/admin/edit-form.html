@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Mashina tahrirlash</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+<h2>Mashinani tahrirlash</h2>
+
+<form th:action="@{/admin/save}" method="post" th:object="${car}">
+  <input type="hidden" th:field="*{id}"/>
+
+  <label>Model:</label>
+  <input type="text" th:field="*{model}" />
+
+  <label>Rangi:</label>
+  <input type="text" th:field="*{color}" />
+
+  <label>Brend:</label>
+  <input type="text" th:field="*{brand}" />
+
+  <label>Yili:</label>
+  <input type="number" th:field="*{year}" />
+
+  <label>Izoh:</label>
+  <textarea th:field="*{description}"></textarea>
+
+  <label>Narxi (so'm):</label>
+  <input type="number" th:field="*{price}" />
+
+  <label>Kategoriya (rate):</label>
+  <select th:field="*{rate}">
+    <option th:each="r : ${T(uz.husan.rentcar24.entity.enums.CarRate).values()}"
+            th:value="${r}" th:text="${r}">Kategoriya</option>
+  </select>
+
+  <label>Rasm URL:</label>
+  <input type="text" th:field="*{imageUrl}" />
+
+  <label>Avtomobil raqami (number):</label>
+  <input type="text" th:field="*{number}" />
+
+  <label>Status:</label>
+  <select th:field="*{status}">
+    <option value="NOTGIVEN">NOTGIVEN</option>
+    <option value="GIVEN">GIVEN</option>
+  </select>
+
+  <button type="submit">Saqlash</button>
+</form>
+</body>
+</html>

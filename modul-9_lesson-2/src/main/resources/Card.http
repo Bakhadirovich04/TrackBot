@@ -1,0 +1,27 @@
+### Card listini olish
+GET http://localhost:8080/card
+
+
+
+### Card yaratish
+POST http://localhost:8080/card
+Content-Type: application/json
+
+{
+  "holderId": 2,
+  "cardNumber": "9860 **** **** 1288",
+  "cardType": "VISA",
+  "exireDate": "07/32",
+  "balance": 25000
+}
+
+### Cardni yangilash
+PUT http://localhost:8080/card/1
+
+Content-Type: application/json
+
+{
+  "cardType": "VISA",
+  "exireDate": "07/32",
+  "balance": 30000
+}

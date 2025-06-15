@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foydalanuvchilar Ro'yxati</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #3a6073, #16222a);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .logout-action {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .logout-action a {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin-bottom: 5px;
+            padding: 6px 10px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 12px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .actions a:hover {
+            background-color: #2980b9;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .actions a.delete {
+            background-color: #e74c3c;
+        }
+
+        .actions a.delete:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logout-action">
+        <a href="/admin">Ortga</a>
+    </div>
+    <div class="header-content">
+        <h1>Foydalanuvchilar Ro'yxati</h1>
+        <p>Saytdagi barcha foydalanuvchilar</p>
+    </div>
+</header>
+
+<main>
+    <h2>Foydalanuvchilar Jadvali</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>To'liq ism</th>
+            <th>Email</th>
+            <th>Balans</th>
+            <th>Role</th>
+            <th>Amallar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.balance} + ' so\'m'"></td>
+            <td th:text="${user.role}"></td>
+            <td class="actions">
+                <a th:href="@{'/admin/buyurtmalar/' + ${user.id}}">Buyurtmalari</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+### Card Yaratish
+POST http://localhost:8081/card/create?id=6
+Content-Type: application/json
+
+{
+  "cardNumber": "5614680009172222",
+  "balance": 500000.00,
+  "cvv": "456",
+  "cardName": "UzCard"
+}
+
+
+### Cardlarni Olish
+GET http://localhost:8081/card
+
+
+### Cardni yangilash bu yerda id cardni id si, userId esa userning id
+PUT http://localhost:8081/card/update?id=4&userId=6
+Content-Type: application/json
+
+{
+  "cardNumber": "5614680009176336",
+  "balance":200000.0,
+  "cvv": "145",
+  "cardName": "UzCard"
+}
+
+### Cardni O'chirish
+DELETE http://localhost:8081/card/1

@@ -1,0 +1,30 @@
+### Card Yaratish
+### Authorization: Husan:  eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaG9yaXlldmh1c2FuNzRAZ21haWwuY29tIiwiZXhwIjoxNzUyMjM5MTgxfQ.19J6q2fYjCpfEI7vaX1fwGBY4TU6cmPpbnPtBBdjH-E
+### Authorization: Ali: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodXNhbmNob3JpeWV2MjAwNDA0MDZAZ21haWwuY29tIiwiZXhwIjoxNzUyMjM5MTA3fQ.954hmF6-ioa7CKipKtGnXNNituISaYTiN9UZOskTRKQ
+POST http://localhost:8081/card/create
+Content-Type: application/json
+Authorization: Y2hvcml5ZXZodXNhbjc0QGdtYWlsLmNvbQ==
+
+{
+  "cardNumber": "8600789640190101",
+  "password": "root123",
+  "balance": 500000.00,
+  "cvv": "898",
+  "cardType": "HUMO",
+  "expiryDate": "09/25"
+}
+
+
+### Cardlarni O'qish
+GET http://localhost:8081/card/read?page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaG9yaXlldmh1c2FuNzRAZ21haWwuY29tIiwiZXhwIjoxNzUyMjQyMDY0fQ.h6XJbtO0VXaegp08c-ub93sDE4fTJ0bouPlHYAIl0T0
+
+
+### Cardni yangilash
+PUT http://localhost:8081/card/update?card_number=9860190101553542&last_pin=husan2004&new_pin=husan2004&balance=500.0
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaG9yaXlldmh1c2FuNzRAZ21haWwuY29tIiwiZXhwIjoxNzUyMjM5MTgxfQ.19J6q2fYjCpfEI7vaX1fwGBY4TU6cmPpbnPtBBdjH-E
+
+
+### Cardni O'chirish
+DELETE http://localhost:8081/card/delete?card_number=8600789640190101
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaG9yaXlldmh1c2FuNzRAZ21haWwuY29tIiwiZXhwIjoxNzUyMjM5MTgxfQ.19J6q2fYjCpfEI7vaX1fwGBY4TU6cmPpbnPtBBdjH-E

@@ -1,0 +1,36 @@
+###  User yaratish
+POST http://localhost:8081/user
+Content-Type: application/json
+
+{
+  "balance": 200000.00,
+  "email": "ali@gmail.com",
+  "fullName": "Ali Aliyev",
+  "password": "root123"
+}
+
+
+### Userlar Royxatini olish
+GET http://localhost:8081/user
+
+
+
+### Userni yangilash
+PUT http://localhost:8081/user/update?id=5
+Content-Type: application/json
+
+{
+  "balance": 500000.00,
+  "email": "Malik@gmail.com",
+  "fullName": "Malik Valiyev",
+  "password": "root123"
+}
+
+
+### Userni O'chirish
+DELETE http://localhost:8081/user/5
+
+
+### Userni Cardlarini olish
+GET http://localhost:8081/user/6/cards
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Mening ijara yozuvlarim</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    header { background: linear-gradient(to right, #3a6073, #16222a); color: white; padding: 20px; text-align: center; }
+    main { max-width: 1000px; margin: 40px auto; }
+    .card { background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; overflow: hidden; }
+    .card img { width: 200px; object-fit: cover; }
+    .card-content { padding: 20px; flex: 1; }
+    .card-content h3 { margin: 0 0 10px; color: #2c3e50; }
+    .card-content p { margin: 6px 0; color: #555; }
+    .card-content .dates { font-size: 14px; }
+    .card-content .price { font-weight: bold; margin-top: 10px; }
+    .back-link { text-align: center; margin: 20px; }
+    .back-link a { color: #3498db; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Mening ijara yozuvlarim</h1>
+</header>
+<main>
+  <div th:if="${bookingList.empty}">
+    <p style="text-align:center; color:#777;">Hozircha hech qanday ijara yozuvingiz yo'q.</p>
+  </div>
+  <div th:each="booking : ${bookingList}">
+    <div class="card">
+      <img th:src="${booking.image}" alt="Mashina rasmi">
+      <div class="card-content">
+        <h3 th:text="${booking.title}">Mashina modeli</h3>
+        <p class="dates">
+          Boshlanish: <span th:text="${#temporals.format(booking.startDate, 'yyyy-MM-dd HH:mm')}"></span><br/>
+          Tugash: <span th:text="${#temporals.format(booking.endDate, 'yyyy-MM-dd HH:mm')}"></span>
+        </p>
+        <p class="price" th:text="'Narx: ' + ${booking.price}">Narx</p>
+        <td th:text="${booking.carStatus}">Status</td> <!-- YANGI QATOR -->
+
+      </div>
+    </div>
+  </div>
+  <div class="back-link">
+    <a th:href="@{/user}">&larr; Bosh sahifaga qaytish</a>
+  </div>
+</main>
+</body>
+</html>

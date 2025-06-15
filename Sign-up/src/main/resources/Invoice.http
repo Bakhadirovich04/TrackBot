@@ -1,0 +1,19 @@
+### invoice Create
+GET http://localhost:8081/invoice/create?companyId=5&amount=100000
+
+
+### invoice Get All
+GET http://localhost:8081/invoice/read?page=2&size=1
+
+
+### update invoice
+PUT http://localhost:8081/invoice/update?invoiceId=2
+Content-Type: application/json
+
+{
+  "amount":10000.00,
+  "status": "PENDING"
+}
+
+### delete invoice
+DELETE http://localhost:8081/invoice/delete?invoiceId=2

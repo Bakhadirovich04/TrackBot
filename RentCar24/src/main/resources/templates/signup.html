@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ro'yxatdan o'tish</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://hips.hearstapps.com/hmg-prod/images/21802-2025-k5-65c51c31b9323.jpg?crop=0.657xw%3A0.555xh%3B0.226xw%2C0.178xh&resize=2048%3A%2A');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .signup-container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            margin: 60px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .login-link a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .message {
+            text-align: center;
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">RentCar24</div>
+        <nav>
+            <a href="/">Bosh sahifa</a>
+            <a href="/cars">Avtomobillar</a>
+            <a href="/aloqa">Aloqa</a>
+        </nav>
+    </div>
+</header>
+
+<div class="signup-container">
+    <h2>Ro'yxatdan o'tish</h2>
+
+    <div class="message" th:if="${message != null}" th:text="${message}"></div>
+
+    <form action="/auth/signup" method="post">
+        <input type="text" name="fullname" placeholder="Ism va familiya" required>
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Parol" required>
+        <input type="number" name="balance" placeholder="Balans (so'm)" required min="0">
+        <button type="submit">Ro'yxatdan o'tish</button>
+    </form>
+
+    <div class="login-link">
+        Hisobingiz bormi? <a th:href="@{'/auth/signin'}">Kirish</a>
+    </div>
+</div>
+
+</body>
+</html>

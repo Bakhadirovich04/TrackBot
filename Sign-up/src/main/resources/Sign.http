@@ -1,0 +1,22 @@
+### Sign up
+POST http://localhost:8081/auth/signup
+Content-Type: application/json
+
+{
+  "fullName": "Husan Choriyev",
+  "email": "choriyevhusan74@gmail.com",
+  "password": "root123"
+}
+
+### Sign in
+POST http://localhost:8081/auth/signin
+Content-Type: application/json
+
+{
+  "email": "choriyevhusan74@gmail.com",
+  "password": "root123"
+}
+
+### confirm code
+GET http://localhost:8081/auth/confirm?code=613112&email=husanchoriyev20040406@gmail.com
+###

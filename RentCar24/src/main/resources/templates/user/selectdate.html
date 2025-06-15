@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mashina Band Qilish</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            color: #333;
+        }
+
+        input[type="datetime-local"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // Sahifa yuklanganda inputlarga joriy vaqtni min sifatida o'rnatish
+        window.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // to'g'ri format uchun
+            const formatted = now.toISOString().slice(0,16);
+
+            document.getElementById('startDate').setAttribute('min', formatted);
+            document.getElementById('endDate').setAttribute('min', formatted);
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Mashina band qilish sanasini tanlang</h2>
+    <form th:action="@{/booking/takecar}" method="post">
+        <input type="hidden" name="car_id" th:value="${carId}" />
+
+        <label for="startDate">Boshlanish vaqti:</label>
+        <input type="datetime-local" id="startDate" name="startDate" required/>
+
+        <label for="endDate">Tugash vaqti:</label>
+        <input type="datetime-local" id="endDate" name="endDate" required/>
+
+        <button type="submit">Tasdiqlash</button>
+    </form>
+    <div class="back-link">
+        <a th:href="@{/user/bringCarByRate(rate=${'PREMIUM'})}">Ortga qaytish</a>
+    </div>
+</div>
+l,k.
+</body>
+</html>

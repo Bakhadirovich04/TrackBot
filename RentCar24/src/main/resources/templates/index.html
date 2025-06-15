@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .nav .btn {
+            background: #ffcc00;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: #000;
+        }
+        .hero {
+            background: url('https://www.kia.com/content/dam/kwcms/au/en/images/showroom/sorento-pe/360VR/exterior/volcanic-sand-brown/kia-sorento-gt-volcanic-sand-brown_00000.webp') center/cover no-repeat;
+            color: lightcoral;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero .btn {
+            background: #ffcc00;
+            color: #000;
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: inline-block;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .cars {
+            padding: 50px 0;
+        }
+        .cars h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .car-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .car {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .car img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent Car 24</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo"> RentCar24</div>
+        <nav class="nav">
+            <a href="/auth/signin">Avtomobillar</a>
+            <a href="/auth/signin">Narxlar</a>
+            <a href="/aloqa">Aloqa</a>
+            <a href="/auth/signin" class="btn">Kirish</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Ijaraga avtomobil toping</h1>
+        <p>Bizda eng arzon va ishonchli ijaralar mavjud.</p>
+    </div>
+</section>
+
+<section class="cars">
+    <div class="container">
+        <h2>Mashhur Avtomobillar</h2>
+        <div class="car-grid">
+            <div class="car">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/21802-2025-k5-65c51c31b9323.jpg?crop=0.657xw%3A0.555xh%3B0.226xw%2C0.178xh&resize=2048%3A%2A" alt="Kia K5" />
+                <h3>Kia K5</h3>
+            </div>
+            <div class="car">
+                <img src="https://crisscrossauto.com/wp-content/uploads/2024/07/Malibu-XL-03.jpg" alt="Malibu XL" />
+                <h3>Malibu 2</h3>
+            </div>
+            <div class="car">
+                <img src="https://s7d1.scene7.com/is/image/hyundai/2025-sonata-open-graph?fmt=webp&hei=630&qlt=85%2C0&wid=1200" alt="Gentra" />
+                <h3>Hyundai Sonata</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 RentCar24. Barcha huquqlar himoyalangan.</p>
+    </div>
+</footer>
+
+</body>
+</html>

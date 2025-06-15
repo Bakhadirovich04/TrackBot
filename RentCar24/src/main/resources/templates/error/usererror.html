@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:if="${message != null}">
+    <h2 style="color: red" th:text="${message}"></h2>
+</div></body>
+<a th:href="@{'/user'}">userpage</a></body>
+</html>
